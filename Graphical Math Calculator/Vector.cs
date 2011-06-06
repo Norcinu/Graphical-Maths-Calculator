@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Graphical_Math_Calculator
 {
-    enum VectorType { TWO = 1, THREE, FOUR };
+    enum MathType { VECTOR_TWO = 1, VECTOR_THREE, VECTOR_FOUR,
+        MATRIX_TWO, MATRIX_THREE, MATRIX_FOUR, NONE };
     
     class Vector
     {
@@ -13,11 +14,11 @@ namespace Graphical_Math_Calculator
         private double y = 0;
         private double z = 0;
         private double w = 0;
-        private VectorType type;
+        private MathType type;
 
         #region PROPERTIES
         
-        internal VectorType Type
+        internal MathType Type
         {
             get { return type; }
             set { type = value; }
@@ -86,25 +87,17 @@ namespace Graphical_Math_Calculator
 
         public Vector Subtract( ref Vector other )
         {
-            Vector result = new Vector();
-            return result;
+            return new Vector( x - other.x, y / other.y, z / other.z, w / other.w );
         }
 
-        public Vector Multiply( ref Vector other )
+        public Vector Multiply( double scalar )
         {
-            Vector result = new Vector();
-            return result;
+            return new Vector( x * scalar, y * scalar, z * scalar, w * scalar );
         }
 
-        public Vector Divide( ref Vector other )
+        public Vector Divide( double scalar )
         {
-            Vector result = new Vector();
-            return result;
-        }
-
-        public double Length()
-        {
-            return 1.0;
+            return new Vector( x / scalar, y / scalar, z / scalar, w / scalar );
         }
 
         public void Normalise()
@@ -125,11 +118,6 @@ namespace Graphical_Math_Calculator
         {
             return new Vector( v1.x * v2, v1.y * v2, v1.z * v2, v1.w * v2 );
         }
-
-        //public Vector operator *( double d )
-        //{
-        //    return new Vector(x*d, y_*d, z*d, w_*d);
-        //}
 
         public static Vector operator -( Vector v1, Vector v2 )
         {

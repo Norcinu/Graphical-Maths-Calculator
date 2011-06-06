@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Graphical_Math_Calculator
 {
-    interface Matrix
+    interface IMatrix
     {
-
+        
     }
 }
