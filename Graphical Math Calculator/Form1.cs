@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Graphical_Math_Calculator
+namespace GraphicalMathCalculator
 {
     public partial class Form1 : Form
     {

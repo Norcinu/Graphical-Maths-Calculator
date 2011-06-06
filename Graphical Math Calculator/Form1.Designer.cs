@@ -1,4 +1,4 @@
-﻿namespace Graphical_Math_Calculator
+﻿namespace GraphicalMathCalculator
 {
     partial class Form1
     {

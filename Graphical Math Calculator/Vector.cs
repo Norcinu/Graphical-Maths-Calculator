@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Graphical_Math_Calculator
+namespace GraphicalMathCalculator
 {
     enum MathType { VECTOR_TWO = 1, VECTOR_THREE, VECTOR_FOUR,
         MATRIX_TWO, MATRIX_THREE, MATRIX_FOUR, NONE };
     
-    class Vector
+    public class Vector
     {
         private double x = 0;
         private double y = 0;
@@ -73,7 +73,7 @@ namespace Graphical_Math_Calculator
             x = y = z = w = 0;
         }
 
-        public Vector Add( ref Vector other )
+        public Vector Add( Vector other )
         {
             Vector result = new Vector();
 
@@ -85,7 +85,7 @@ namespace Graphical_Math_Calculator
             return result;
         }
 
-        public Vector Subtract( ref Vector other )
+        public Vector Subtract( Vector other )
         {
             return new Vector( x - other.x, y / other.y, z / other.z, w / other.w );
         }
@@ -131,6 +131,21 @@ namespace Graphical_Math_Calculator
             return result;
         }
 
+        public static bool operator==(Vector lhs, Vector rhs)
+        {
+            return ( lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.w == rhs.w );
+        }
+
+        public static bool operator!=(Vector lhs, Vector rhs)
+        {
+            return !( lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.w == rhs.w );
+        }
+
+        public override bool Equals( object o )
+        {
+            return this == (Vector)o;
+        } 
+
         double Magnitude()
         {
             return Math.Sqrt( ( x * x ) + ( y * y ) + ( z * z ) + ( w * w ) );
@@ -139,6 +154,16 @@ namespace Graphical_Math_Calculator
         double MagnitudeSQ()
         {
             return ( x * x ) + ( y * y ) + ( z * z ) + ( w * w );
+        }
+
+        public double Distance(Vector v1, Vector v2)
+        {
+            return Math.Sqrt( DistanceSq( v1, v2 ) );
+        }
+
+        private double DistanceSq( Vector v1, Vector v2 )
+        {
+            return ( ( v1.x - v2.x ) * ( v1.x - v2.x ) ) + ( ( v1.y - v2.y ) * ( v1.y - v2.y ) );
         }
     }
 }

@@ -47,6 +47,12 @@
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Graphical Math Calculator\Graphical Math Calculator.csproj">
+      <Project>{ABE25B5A-CF6F-42E9-B8C1-97EACD918338}</Project>
+      <Name>Graphical Math Calculator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
