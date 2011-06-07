@@ -7,23 +7,23 @@ namespace VectorMatrixTest
     public class Tests
     {
         [Test]
-        public void AddVectors()
+        public void AddVector2()
         {
-            Vector v1 = new Vector( 1, 2, 3, 1 );
-            Vector v2 = new Vector( 1, 3, -2, 1 );
-            Vector v3 = new Vector();
-            Vector v4 = new Vector( 2, 5, 1, 2 );
+            Vector2 v1 = new Vector2( 1, 2 );
+            Vector2 v2 = new Vector2( 1, 3 );
+            Vector2 v3 = new Vector2();
+            Vector2 v4 = new Vector2( 2, 5 );
             v3 = v1.Add( v2 );
             Assert.That( v3 == v4 );    
         }
         
         [Test]
-        public void SubtractVectors()
+        public void SubtractVector2()
         {
-            Vector v1 = new Vector( 1, 2, 3, 1 );
-            Vector v2 = new Vector( 1, 3, -2, 1 );
-            Vector v3 = new Vector();
-            Vector v4 = new Vector( 0, -1, 1, 0 );
+            Vector2 v1 = new Vector2( 1, 2 );
+            Vector2 v2 = new Vector2( 1, 3 );
+            Vector2 v3 = new Vector2();
+            Vector2 v4 = new Vector2( 0, -1 );
             v3 = v1.Subtract( v2 );
             Assert.That( v3 != v4 );  
         }

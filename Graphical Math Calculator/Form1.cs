@@ -11,10 +11,8 @@ namespace GraphicalMathCalculator
 {
     public partial class Form1 : Form
     {
-        //private int valueOne = 0;
-      //  private int valueTwo = 0;
-        private MathType valueOne;
-        private MathType valueTwo;
+        private string valueOne;
+        private string valueTwo;
 
         public Form1()
         {
@@ -23,18 +21,7 @@ namespace GraphicalMathCalculator
 
         private void btnDoOperation_Click( object sender, EventArgs e )
         {
-           // valueOne = LoopThroughGroupControls( grpValueTypeOne );
-            //valueTwo = LoopThroughGroupControls( grpValueTypeTwo );
-
-            if (valueOne == MathType.NONE || valueTwo == MathType.NONE)
-            {
-                Console.WriteLine( "Error, please select a value." );
-            }
-            else
-            {
-                Console.WriteLine( "1 = " + valueOne);
-                Console.WriteLine( "2 = " + valueTwo );
-            }
+        
         }
 
         private MathType LoopThroughGroupControls(GroupBox gbx)
@@ -49,6 +36,18 @@ namespace GraphicalMathCalculator
                 }
             }
             return MathType.NONE;
+        }
+
+        private void cmbInputOne_SelectedIndexChanged( object sender, EventArgs e )
+        {
+            valueOne = cmbInputOne.SelectedItem.ToString();
+            //Console.WriteLine( "str=" + str );
+        }
+
+        private void cmbInputTwo_SelectedIndexChanged( object sender, EventArgs e )
+        {
+            valueTwo = cmbInputTwo.SelectedItem.ToString();
+            //Console.WriteLine( "str=" + str );
         }
     }
 }

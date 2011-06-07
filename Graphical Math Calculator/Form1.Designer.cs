@@ -37,9 +37,9 @@
             this.radSubtract = new System.Windows.Forms.RadioButton();
             this.radAdd = new System.Windows.Forms.RadioButton();
             this.grpValueTypeOne = new System.Windows.Forms.GroupBox();
-            this.btnDoOperation = new System.Windows.Forms.Button();
-            this.cmbInputOne = new System.Windows.Forms.ComboBox();
             this.cmbInputTwo = new System.Windows.Forms.ComboBox();
+            this.cmbInputOne = new System.Windows.Forms.ComboBox();
+            this.btnDoOperation = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpValueTypeOne.SuspendLayout();
             this.SuspendLayout();
@@ -148,15 +148,21 @@
             this.grpValueTypeOne.TabStop = false;
             this.grpValueTypeOne.Text = "Type of inputs:";
             // 
-            // btnDoOperation
+            // cmbInputTwo
             // 
-            this.btnDoOperation.Location = new System.Drawing.Point( 395, 354 );
-            this.btnDoOperation.Name = "btnDoOperation";
-            this.btnDoOperation.Size = new System.Drawing.Size( 90, 23 );
-            this.btnDoOperation.TabIndex = 3;
-            this.btnDoOperation.Text = "Do operation";
-            this.btnDoOperation.UseVisualStyleBackColor = true;
-            this.btnDoOperation.Click += new System.EventHandler( this.btnDoOperation_Click );
+            this.cmbInputTwo.FormattingEnabled = true;
+            this.cmbInputTwo.Items.AddRange( new object[] {
+            "Vector2",
+            "Vector3",
+            "Vector4",
+            "Matrix2",
+            "Matrix3",
+            "Matrix4"} );
+            this.cmbInputTwo.Location = new System.Drawing.Point( 6, 97 );
+            this.cmbInputTwo.Name = "cmbInputTwo";
+            this.cmbInputTwo.Size = new System.Drawing.Size( 121, 21 );
+            this.cmbInputTwo.TabIndex = 1;
+            this.cmbInputTwo.SelectedIndexChanged += new System.EventHandler( this.cmbInputTwo_SelectedIndexChanged );
             // 
             // cmbInputOne
             // 
@@ -172,21 +178,17 @@
             this.cmbInputOne.Name = "cmbInputOne";
             this.cmbInputOne.Size = new System.Drawing.Size( 121, 21 );
             this.cmbInputOne.TabIndex = 0;
+            this.cmbInputOne.SelectedIndexChanged += new System.EventHandler( this.cmbInputOne_SelectedIndexChanged );
             // 
-            // cmbInputTwo
+            // btnDoOperation
             // 
-            this.cmbInputTwo.FormattingEnabled = true;
-            this.cmbInputTwo.Items.AddRange( new object[] {
-            "Vector2",
-            "Vector3",
-            "Vector4",
-            "Matrix2",
-            "Matrix3",
-            "Matrix4"} );
-            this.cmbInputTwo.Location = new System.Drawing.Point( 6, 97 );
-            this.cmbInputTwo.Name = "cmbInputTwo";
-            this.cmbInputTwo.Size = new System.Drawing.Size( 121, 21 );
-            this.cmbInputTwo.TabIndex = 1;
+            this.btnDoOperation.Location = new System.Drawing.Point( 395, 354 );
+            this.btnDoOperation.Name = "btnDoOperation";
+            this.btnDoOperation.Size = new System.Drawing.Size( 90, 23 );
+            this.btnDoOperation.TabIndex = 3;
+            this.btnDoOperation.Text = "Do operation";
+            this.btnDoOperation.UseVisualStyleBackColor = true;
+            this.btnDoOperation.Click += new System.EventHandler( this.btnDoOperation_Click );
             // 
             // Form1
             // 
