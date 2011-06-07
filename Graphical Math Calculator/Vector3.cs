@@ -5,8 +5,12 @@ using System.Text;
 
 namespace GraphicalMathCalculator
 {
-    public class Vector3 : Vector
+    public class Vector3 //: Vector
     {
+        public double x = 0;
+        public double y = 0;
+        public double z = 0;
+
         public Vector3()
         {
         }
@@ -18,12 +22,12 @@ namespace GraphicalMathCalculator
             z = z_;
         }
 
-        public override void Reset()
+        public void Reset()
         {
             x = y = z = 0;
         }
 
-        public override Vector Add( Vector other )
+        public Vector3 Add( Vector3 other )
         {
             Vector3 result = new Vector3();
             result.x = x + other.x;
@@ -32,22 +36,22 @@ namespace GraphicalMathCalculator
             return result;
         }
 
-        public override Vector Subtract( Vector other )
+        public Vector3 Subtract( Vector3 other )
         {
-            return new Vector3( x - other.x, y / other.y, z / other.z );
+            return new Vector3( x - other.x, y - other.y, z - other.z );
         }
 
-        public override Vector Multiply( double scalar )
+        public Vector3 Multiply( double scalar )
         {
             return new Vector3( x * scalar, y * scalar, z * scalar );
         }
 
-        public override Vector Divide( double scalar )
+        public Vector3 Divide( double scalar )
         {
             return new Vector3( x / scalar, y / scalar, z / scalar );
         }
 
-        public override void Normalise()
+        public void Normalise()
         {
             double inverse = 1.0f / Magnitude();
             x *= inverse;
@@ -55,12 +59,12 @@ namespace GraphicalMathCalculator
             z *= inverse;
         }
 
-        public override double Magnitude()
+        public double Magnitude()
         {
             return Math.Sqrt( ( x * x ) + ( y * y ) + ( z * z ) );
         }
 
-        public override double MagnitudeSQ()
+        public double MagnitudeSQ()
         {
             return ( x * x ) + ( y * y ) + ( z * z );
         }
@@ -80,7 +84,7 @@ namespace GraphicalMathCalculator
             return new Vector3( v1.x - v2.x, v1.y - v2.y, v1.z - v2.z );
         }
 
-        public Vector Lerp( Vector3 v1, Vector3 v2, double t )
+        public Vector3 Lerp( Vector3 v1, Vector3 v2, double t )
         {
             Vector3 result = new Vector3();
             result = v1 + ( v1 - v2 ) * t;
@@ -107,12 +111,12 @@ namespace GraphicalMathCalculator
             return base.GetHashCode();
         }
 
-        public override double Distance( Vector v1, Vector v2 )
+        public double Distance( Vector3 v1, Vector3 v2 )
         {
             return Math.Sqrt( DistanceSq( v1, v2 ) );
         }
 
-        public override double DistanceSq( Vector v1, Vector v2 )
+        public double DistanceSq( Vector3 v1, Vector3 v2 )
         {
             return ( ( v1.x - v2.x ) * ( v1.x - v2.x ) ) + ( ( v1.y - v2.y ) * ( v1.y - v2.y ) );
         }

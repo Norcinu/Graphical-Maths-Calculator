@@ -21,7 +21,14 @@ namespace GraphicalMathCalculator
 
         private void btnDoOperation_Click( object sender, EventArgs e )
         {
-        
+            Vector2 v1 = new Vector2( 1, 1 );
+            Vector2 v2 = new Vector2( 2, 2 );
+            Vector2 v3 = new Vector2();
+            
+            v3 = v1.Add( v2 );
+            
+            Console.WriteLine( v3.x );
+            Console.WriteLine( v3.y );
         }
 
         private MathType LoopThroughGroupControls(GroupBox gbx)
