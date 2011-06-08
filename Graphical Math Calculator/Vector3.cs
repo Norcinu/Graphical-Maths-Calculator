@@ -27,28 +27,28 @@ namespace GraphicalMathCalculator
             x = y = z = 0;
         }
 
-        public Vector3 Add( Vector3 other )
+        public static Vector3 Add( Vector3 lhs, Vector3 rhs )
         {
             Vector3 result = new Vector3();
-            result.x = x + other.x;
-            result.y = y + other.y;
-            result.z = z + other.z;
+            result.x = lhs.x + rhs.x;
+            result.y = lhs.y + rhs.y;
+            result.z = lhs.z + rhs.z;
             return result;
         }
 
-        public Vector3 Subtract( Vector3 other )
+        public static Vector3 Subtract( Vector3 lhs, Vector3 rhs )
         {
-            return new Vector3( x - other.x, y - other.y, z - other.z );
+            return new Vector3( lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z );
         }
 
-        public Vector3 Multiply( double scalar )
+        public static Vector3 Multiply( Vector3 lhs, double scalar )
         {
-            return new Vector3( x * scalar, y * scalar, z * scalar );
+            return new Vector3( lhs.x * scalar, lhs.y * scalar, lhs.z * scalar );
         }
 
-        public Vector3 Divide( double scalar )
+        public static Vector3 Divide( Vector3 lhs, double scalar )
         {
-            return new Vector3( x / scalar, y / scalar, z / scalar );
+            return new Vector3( lhs.x / scalar, lhs.y / scalar, lhs.z / scalar );
         }
 
         public void Normalise()

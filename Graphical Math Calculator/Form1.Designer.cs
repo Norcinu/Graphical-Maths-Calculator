@@ -143,7 +143,7 @@
             this.grpValueTypeOne.Controls.Add( this.cmbInputOne );
             this.grpValueTypeOne.Location = new System.Drawing.Point( 12, 12 );
             this.grpValueTypeOne.Name = "grpValueTypeOne";
-            this.grpValueTypeOne.Size = new System.Drawing.Size( 161, 145 );
+            this.grpValueTypeOne.Size = new System.Drawing.Size( 132, 145 );
             this.grpValueTypeOne.TabIndex = 1;
             this.grpValueTypeOne.TabStop = false;
             this.grpValueTypeOne.Text = "Type of inputs:";

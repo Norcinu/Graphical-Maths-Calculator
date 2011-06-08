@@ -30,31 +30,31 @@ namespace GraphicalMathCalculator
             x = y = z = w = 0;
         }
 
-        public Vector4 Add( Vector4 other )
+        public static Vector4 Add( Vector4 lhs, Vector4 rhs )
         {
             Vector4 result = new Vector4();
 
-            result.x = x + other.x;
-            result.y = y + other.y;
-            result.z = z + other.z;
-            result.w = w + other.w;
+            result.x = lhs.x + rhs.x;
+            result.y = lhs.y + rhs.y;
+            result.z = lhs.z + rhs.z;
+            result.w = lhs.w + rhs.w;
 
             return result;
         }
 
-        public Vector4 Subtract( Vector4 other )
+        public static Vector4 Subtract( Vector4 lhs, Vector4 rhs )
         {
-            return new Vector4( x - other.x, y - other.y, z - other.z, w - other.w );
+            return new Vector4( lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w );
         }
 
-        public Vector4 Multiply( double scalar )
+        public static Vector4 Multiply( Vector4 lhs, double scalar )
         {
-            return new Vector4( x * scalar, y * scalar, z * scalar, w * scalar );
+            return new Vector4( lhs.x * scalar, lhs.y * scalar, lhs.z * scalar, lhs.w * scalar );
         }
 
-        public Vector4 Divide( double scalar )
+        public static Vector4 Divide( Vector4 lhs, double scalar )
         {
-            return new Vector4( x / scalar, y / scalar, z / scalar, w / scalar );
+            return new Vector4( lhs.x / scalar, lhs.y / scalar, lhs.z / scalar, lhs.w / scalar );
         }
 
         public void Normalise()

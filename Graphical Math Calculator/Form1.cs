@@ -13,47 +13,48 @@ namespace GraphicalMathCalculator
     {
         private string valueOne;
         private string valueTwo;
+        private Dictionary<string, int> typeMap = new Dictionary<string, int>();
 
         public Form1()
         {
             InitializeComponent();
+            
+            ComboBox.ObjectCollection c = cmbInputOne.Items;
+            int count = 2;
+            for (int i = 0; i < c.Count; i++)
+            {
+                typeMap.Add( c[i].ToString(), count );
+                if (count < 4)
+                {
+                    ++count;
+                }
+                else
+                {
+                    count = 2;
+                }
+            }
+
+            foreach (KeyValuePair<string, int> pair in typeMap)
+            {
+                Console.WriteLine( pair );
+            }
         }
 
         private void btnDoOperation_Click( object sender, EventArgs e )
         {
-            Vector2 v1 = new Vector2( 1, 1 );
-            Vector2 v2 = new Vector2( 2, 2 );
-            Vector2 v3 = new Vector2();
-            
-            v3 = v1.Add( v2 );
-            
-            Console.WriteLine( v3.x );
-            Console.WriteLine( v3.y );
-        }
-
-        private MathType LoopThroughGroupControls(GroupBox gbx)
-        {
-            for (int i = 0; i < gbx.Controls.Count; i++)
-            {
-                RadioButton rb = (RadioButton)grpValueTypeOne.Controls[i];
-                if (rb.Checked==true)
-                {
-                    MathType type = (MathType)i;
-                    return type;
-                }
-            }
-            return MathType.NONE;
         }
 
         private void cmbInputOne_SelectedIndexChanged( object sender, EventArgs e )
         {
             valueOne = cmbInputOne.SelectedItem.ToString();
+            Console.WriteLine( valueOne );
             //Console.WriteLine( "str=" + str );
         }
 
         private void cmbInputTwo_SelectedIndexChanged( object sender, EventArgs e )
         {
             valueTwo = cmbInputTwo.SelectedItem.ToString();
+            Console.WriteLine( valueTwo );
             //Console.WriteLine( "str=" + str );
         }
     }

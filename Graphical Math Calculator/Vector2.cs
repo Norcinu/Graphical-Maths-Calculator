@@ -25,22 +25,22 @@ namespace GraphicalMathCalculator
             x = y = 0;
         }
 
-        public Vector2 Add( Vector2 other )
+        public static Vector2 Add( Vector2 lhs, Vector2 rhs )
         {
             Vector2 result = new Vector2();
-            result.x = x + other.x;
-            result.y = y + other.y;
+            result.x = lhs.x + rhs.x;
+            result.y = lhs.y + rhs.y;
             return result;
         }
 
-        public Vector2 Subtract( Vector2 other )
+        public static Vector2 Subtract( Vector2 lhs, Vector2 rhs )
         {
-            return new Vector2( x - other.x, y - other.y );
+            return new Vector2( lhs.x - rhs.x, lhs.y - rhs.y );
         }
 
-        public Vector2 Multiply( double scalar )
+        public static Vector2 Multiply( Vector2 v, double scalar )
         {
-            return new Vector2( x * scalar, y * scalar );
+            return new Vector2( v.x * scalar, v.y * scalar );
         }
 
         public Vector2 Divide( double scalar )
